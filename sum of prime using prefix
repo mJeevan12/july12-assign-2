@@ -1,0 +1,17 @@
+import math
+n=int(input())
+sum=0
+seive=[True]*n
+seive[0]=seive[1]=False
+x=int(math.sqrt(n))
+for  i in range(2,x+1):
+    if seive[i]:
+        for j in range(i*i,n,i):
+            seive[j]=False
+pf=[0]*n
+for i in range(2,n):
+    if seive[i]:
+        sum=sum+i
+    else:
+        pf[i]=pf[i-1]
+print(sum)
